@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="web tool for crispr-cas9 off-target prediction/detection using AI">
+    <meta name="Keywords"
+        content="IASRI, ICAR-IASRI, CRISPR, crispr, crispr-cas9, IASRI-CRISPR, icar-iasri-crispr-cas9, crispr off target prediction">
+    <meta name="robots" content="INDEX, FOLLOW">
+    <title>IASRI-CRISPR</title>
+    <!----------- Link of favicon here ------------>
+    <link rel="icon" href="{{ url_for('static', filename='images/Favicon.png') }}" type="image/x-icon">
+
+    <!----------- Link of Style sheet file here ------------>
+    <link href="{{ url_for('static', filename='styles/table.css') }}" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="Styles/style.css"> -->
+    <style>
+        table {
+            width: 100%;
+            color: #282828;
+            background-color: #ecf9ec;
+            font-family: 'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', 'serif';
+            margin-top: 2px;
+        }
+
+        th,
+        td {
+            border: 1px solid #282828;
+            padding: 8px;
+            text-align: center;
+            font-size: large;
+            border-radius: 5px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <!----------- Layout of header and navbar ------------>
+    <header>
+        <div class="Top">
+            <div class="Top_items" id="item1">
+                <a href="/">
+                    <img src="{{ url_for('static', filename='images/iasri_logo.png') }}" alt="IASRI-CRISPR Logo" />
+                </a>
+                <!-- <img src="{{ url_for('static', filename='images/iasri_logo.png') }}" alt="IASRI-CRISPR Logo"> -->
+            </div>
+            <div class="Top_items" id="item3">
+                <h1>i-CRISPR</h1>
+                <nav class="Downloadnav">
+                    <ul>
+                        <form action="/download/{{type}}">
+                            <ul>
+                                <li><button id="Downloadid">Download Your Result File</button></li>
+                            </ul>
+                        </form>
+
+                </nav>
+            </div>
+            <div class="Top_items" id="item2">
+                <a href="/">
+                    <img src="{{ url_for('static', filename='images/iasri_logo.png') }}" alt="IASRI-CRISPR Logo" />
+                </a>
+                <!-- <img id="Logo2" src="{{ url_for('static', filename='images/iasri_logo.png') }}" alt="IASRI-CRISPR Logo"> -->
+            </div>
+        </div>
+    </header>
+
+    <!----------- Layout of User result page ------------>
+
+    <table>
+        <thead>
+            <tr>
+                <th>SgRNA</th>
+                <th>Target DNA Sequence</th>
+                <th>Result</th>
+                <th>Position</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!----------- Layout of Footer ------------>
+    <footer class="Bottom1">
+        <div class="Bottom2">
+            <ul class="Bottom3" #="Links">
+                <li><a href="https://www.icar.org.in/" target="_blank">ICAR |</a></li>
+                <li><a href="https://www.iari.res.in/index.php/en/" target="_blank">ICAR-IARI |</a></li>
+                <li><a href="https://iasri.icar.gov.in/" target="_blank">ICAR-IASRI</a></li>
+            </ul>
+            Copyright &copy; 2023 ICAR-Indian Agricultural Research Institute. All rights reserved.
+        </div>
+    </footer>
+
+    <!----------- Link of javascript file here ------------>
+    <!-- <script src="{{ url_for('static', filename='scripts/script.js') }}"></script> -->
+    <!-- <script src="/Scripts/script.js"></script> -->
+</body>
+
+</html>

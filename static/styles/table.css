@@ -1,0 +1,491 @@
+/* -------------------------------------------------Styling of i-CRISPR Website----------------------------------------------------------- */
+
+/* -------Styling of All Element--------- */
+* {
+    box-sizing: border-box;
+}
+
+/* -----------------------------------------------Styling of Header------------------------------------ */
+.Top {
+    overflow: hidden;
+    border: 1px solid;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    border-radius: 30px;
+    background-color: #205c20
+}
+
+/* -------Styling of Logo & Title--------- */
+#item1 img {
+    display: inline;
+    width: auto;
+    height: 150px;
+    float: left;
+    /* border: 1px solid; */
+    padding: 1px;
+
+}
+
+#item2 img {
+    display: inline;
+    width: auto;
+    height: 150px;
+    float: right;
+    /* border: 1px solid; */
+    padding: 1px;
+
+}
+
+#item3 h1,
+h2 {
+    text-align: center;
+    font-family: 'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', 'serif';
+    font-weight: bolder;
+    color: darkgoldenrod;
+    font-size: 35px;
+}
+
+/* -------Styling of Navigation bar--------- */
+
+.Navigate {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    overflow: auto;
+    font-size: larger;
+    font-weight: bolder;
+    font-family: 'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', 'serif';
+}
+
+.Navigate ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: 1px;
+    padding: 1px;
+    overflow: hidden;
+}
+
+.Navigate li {
+    background-color: #b3e6b3;
+    border: 2px solid #282828;
+    border-radius: 10px;
+    margin: 1px;
+    list-style: none;
+    padding: 10px;
+}
+
+.Navigate li a {
+    padding: 3px;
+    text-decoration: none;
+    color: #282828;
+}
+
+.Navigate li a:hover {
+    color: darkgoldenrod;
+    font-size: larger;
+}
+
+.Navigate .nav-link.active {
+    color: darkgoldenrod;
+    font-size: larger;
+    text-decoration: underline;
+}
+
+/* -----------------------------------------------Styling of All section------------------------------------ */
+section {
+    display: none;
+}
+
+section.active {
+    display: block;
+}
+
+/* -----------------------------------------------Styling of Home section------------------------------------ */
+
+/* -----------------Styling of Form----------------- */
+
+#form1 {
+    overflow: hidden;
+    color: #282828;
+    background-color: #ecf9ec;
+    font-family: 'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', 'serif';
+    font-size: large;
+    line-height: 1.2em;
+    font-weight: bold;
+    font-style: normal;
+    border: 2px solid #282828;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 2px;
+    margin-bottom: 0;
+    width: auto;
+    height: 64vh;
+}
+
+/* -------Styling of sgRNA Div--------- */
+.sgRNA {
+    border: 2px solid #282828;
+    padding: 4px;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 170px;
+    margin: 4px;
+
+}
+
+#RNA {
+    display: block;
+    margin: auto;
+    width: 30%;
+    position: relative;
+    top: 12%;
+}
+
+/* -------Styling of Target DNA Div--------- */
+.Target {
+    /* border: 0.1px solid #282828; */
+    padding: 5px;
+    margin-top: 2px;
+    border-radius: 5px;
+    height: 170px;
+    overflow: hidden;
+    display: flex;
+}
+
+.insidecontainer {
+    /* border: 1px solid black; */
+    display: block;
+    margin: auto;
+    width: 65%;
+    height: 150px;
+
+}
+
+.insidecontainer label,
+textarea,
+span {
+    position: relative;
+    top: 20%;
+}
+
+#target_DNA,
+#sgRNA {
+    background-color: lightyellow;
+    border-radius: 5px;
+}
+
+.insidecontainer input {
+    position: relative;
+    top: 20%;
+    left: 20%;
+}
+
+.DNAcontainer {
+    position: relative;
+    top: 5%;
+    left: 20%;
+}
+
+#DNA {
+    border: 2px solid #282828;
+    margin-right: 2PX;
+    border-radius: 5px;
+    overflow: hidden;
+
+}
+
+#Or {
+    /* border: 0.1px solid #282828; */
+    color: red;
+    position: relative;
+    top: 25%;
+}
+
+#Upload {
+    border: 2px solid #282828;
+    margin-left: 2PX;
+    border-radius: 5px;
+    overflow: hidden;
+
+}
+
+/* -------Styling of vorm validation errors--------- */
+.Error {
+    color: red;
+}
+
+/* -------Styling of Uploading file button--------- */
+#userFile {
+    margin-top: 1px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: large;
+    font-weight: bold;
+    font-family: 'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', 'serif';
+
+}
+
+#userFile:hover {
+    color: darkgoldenrod;
+}
+
+/* -------Styling of Selecting model button--------- */
+#Choose {
+    display: block;
+    margin: auto;
+    width: 35%;
+    padding: 5px;
+}
+
+.select {
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: large;
+    font-weight: bold;
+    font-family: 'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', 'serif';
+}
+
+.select:hover {
+    color: darkgoldenrod;
+    background-color: rgb(223, 245, 201);
+    border: 2px solid #282828;
+
+}
+
+#Choice {
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: rgb(223, 245, 201);
+    font-family: 'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', 'serif';
+}
+
+/* -------Styling of Action Buttons excluding uploading button--------- */
+.Action {
+    display: flex;
+    margin: auto;
+    width: 30%;
+    overflow: hidden;
+    position: relative;
+    left: 2%;
+}
+
+#Example {
+    float: left;
+}
+
+#Clear {
+    float: left;
+}
+
+#Prediction {
+    float: left;
+}
+
+.Button {
+    padding: 6px;
+    margin: 2px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: large;
+    cursor: pointer;
+    font-family: 'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', 'serif';
+}
+
+.Button:hover {
+    color: darkgoldenrod;
+    font-size: larger;
+    background-color: rgb(223, 245, 201);
+    border: 2px solid black;
+}
+
+/* -----------------------------------------------Styling of Reference Section------------------------------------ */
+.References {
+    border: 2px solid #282828;
+    width: 60%;
+    margin: auto;
+    background-color: #ecf9ec;
+    border-radius: 5px;
+    padding: 2px;
+    margin-top: 2px;
+    overflow: hidden;
+    font-family: 'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', 'serif';
+    font-size: large;
+}
+
+#Refhead {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    color: #282828;
+}
+
+#ritem1 {
+    margin-bottom: 5px;
+}
+
+.References div {
+    display: inline-block;
+    font-family: 'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', 'serif';
+    font-size: large;
+    text-align: justify;
+    color: #282828;
+}
+
+/* -----------------------------------------------Styling of Help Section------------------------------------ */
+#Helpid {
+    width: 60%;
+    margin: auto;
+    border: 2px solid #282828;
+    border-radius: 5px;
+    background-color: #ecf9ec;
+    font-family: 'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', 'serif';
+    font-size: large;
+    overflow: hidden;
+    margin-top: 2px;
+}
+
+.Help1 {
+    padding: 2px;
+    text-align: justify;
+}
+
+#Helpstrong1 {
+    color: red;
+}
+
+#Helpul1 {
+    align-self: center;
+    padding: 1%;
+}
+
+#Helpul1 li {
+    list-style: none;
+    text-align: justify;
+
+}
+
+#Helpul2 li {
+    list-style: circle;
+    text-align: justify;
+
+}
+
+/* -----------------------------------------------Styling of About Section------------------------------------ */
+#Aboutid {
+    width: 60%;
+    margin: auto;
+    border: 2px solid #282828;
+    border-radius: 5px;
+    background-color: #ecf9ec;
+    font-family: 'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', 'serif';
+    font-size: large;
+    overflow: hidden;
+    margin-top: 2px;
+}
+
+#Abouthead {
+    text-align: center;
+
+}
+
+.About1 table {
+    /* border: 1px solid #282828; */
+    display: block;
+    margin: auto;
+    width: 50%;
+
+}
+
+.About1 th,
+td {
+    border: 1px solid #282828;
+
+}
+
+#Feedback {
+    text-align: center;
+}
+
+/* -----------------------------------------------Styling of Footer Section------------------------------------ */
+.Bottom1 {
+    text-align: center;
+    background-color: #205c20;
+    border-radius: 20px;
+    margin-top: 0;
+}
+
+.Bottom3 li {
+    list-style: none;
+}
+
+.Bottom3 li a {
+    color: whitesmoke;
+    margin: 5px;
+    text-decoration: none;
+}
+
+.Bottom3 li a:hover {
+    text-decoration: underline;
+}
+
+.Bottom2 {
+    color: whitesmoke;
+    padding-bottom: 10px;
+}
+
+.Bottom3 {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+/* -----------------------------------------------Styling of Result page------------------------------------ */
+.Downloadnav {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    overflow: auto;
+    font-size: larger;
+    font-weight: bolder;
+    font-family: 'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', 'serif';
+}
+
+.Downloadnav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: 1px;
+    padding: 1px;
+    overflow: hidden;
+}
+
+.Downloadnav li {
+    border-radius: 10px;
+    margin: 1px;
+    list-style: none;
+    padding: 10px;
+}
+#Downloadid {
+    padding: 6px;
+    margin: 2px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: large;
+    cursor: pointer;
+    font-family: 'Cambria', 'Cochin', Georgia, Times, 'Times New Roman', 'serif';
+}
+
+#Downloadid:hover {
+    color: darkgoldenrod;
+    font-size: larger;
+    background-color: rgb(223, 245, 201);
+    border: 2px solid black;
+}

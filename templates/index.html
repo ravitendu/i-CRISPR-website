@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="web tool for crispr-cas9 off-target prediction/detection using AI">
+    <meta name="Keywords"
+        content="IASRI, ICAR-IASRI, CRISPR, crispr, crispr-cas9, IASRI-CRISPR, icar-iasri-crispr-cas9, crispr off target prediction">
+    <meta name="robots" content="INDEX, FOLLOW">
+    <title>IASRI-CRISPR</title>
+    <!----------- Link of favicon here ------------>
+    <link rel="icon" href="{{ url_for('static', filename='images/Favicon.png') }}" type="image/x-icon">
+
+    <!----------- Link of Style sheet file here ------------>
+    <link href="{{ url_for('static', filename='styles/style.css') }}" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="Styles/style.css"> -->
+</head>
+
+<body>
+    <!----------- Layout of header and navbar ------------>
+    <header>
+        <div class="Top">
+            <div class="Top_items" id="item1">
+                <img src="{{ url_for('static', filename='images/iasri_logo.png') }}" alt="IASRI-CRISPR Logo">
+            </div>
+            <div class="Top_items" id="item3">
+                <h1>i-CRISPR</h1>
+                <nav class="Navigate">
+                    <ul>
+                        <li><a class="nav-link" id="Predicta" href="#Homeid">Predict </a></li>
+                        <li><a class="nav-link" id="Referencesa" href="#Referencesid">References</a></li>
+                        <li><a class="nav-link" id="Helpa" href="#Helpid">Help</a></li>
+                        <li><a class="nav-link" id="Abouta" href="#Aboutid">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="Top_items" id="item2">
+                <img id="Logo2" src="{{ url_for('static', filename='images/iasri_logo.png') }}" alt="IASRI-CRISPR Logo">
+            </div>
+        </div>
+    </header>
+
+    <!----------- Layout of Form and user input ------------>
+    <section class="content active" id="Homeid">
+        <form id="form1" name="myForm" onsubmit="return validateForm()" action="/user_input" method="post"
+            enctype="multipart/form-data">
+            <div class="sgRNA">
+                <div id="RNA" class="item">
+                    <label for="sgRNA">Enter 23 nt long sgRNA sequence including PAM:</label>
+                    <textarea name="sgRNA" id="sgRNA" cols="55" rows="6" required></textarea>
+                </div>
+                <p class="Error" id="Error1" style="text-align: center;"></p>
+            </div>
+            <div id="Targetid" class="Target">
+                <div id="DNA" class="item">
+                    <div class="DNAcontainer">
+                        <label for="target_DNA">Enter corresponding target DNA sequence:</label>
+                        <textarea name="target_DNA" id="target_DNA" cols="45" rows="6"></textarea>
+                    </div>
+                    <p class="Error" id="Error2" style="text-align: center;position: relative; bottom: 5%;"></p>
+                </div>
+                <div id="Or" class="item">
+                    <div class="insidecontaineror">
+                        <h3>Or</h3>
+                    </div>
+
+                </div>
+                <div id="Upload" class="item">
+                    <div class="insidecontainer">
+                        <span>Upload your Fasta file containing target DNA sequence:</span>
+                        <input type="file" id="userFile" name="filename">
+                        <p class="Error" id="Error3" style="text-align: center; position: relative; top: 10%;"></p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div id="Choose" class="item">
+                    <span>Select the AI model for prediction:</span>
+                    <select class="select" name="model">
+                        <option id="Choice1" value="Machine Learning" selected>Machine Learning</option>
+                        <option id="Choice2" value="Deep Learning">Deep Learning</option>
+                    </select>
+                </div>
+            </div>
+
+            <!--- Layout of Form buttons --->
+            <div class="Action">
+                <!-- <div id="Example" class="item">
+                    <input id="Button1" class="Button" type="button" value="Load Example" onclick=Example()>
+                </div> -->
+                <div id="Clear" class="item">
+                    <input id="Button2" class="Button" type="reset" value="Reset" onclick=Reset()>
+                </div>
+                <div id="Prediction" class="item">
+                    <input id="Button3 " class="Button" type="submit" value="Predict">
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <!----------- Layout of Reference section ------------>
+    <section class="References" id="Referencesid">
+        <h3 id="Refhead1">Following two AI models are being used for the result generation:</h3>
+        <div class="items" id="ritem1">
+            <strong>Machine Learning Model:</strong> Das, J., Kumar, S., Mishra, D. C., Chaturvedi, K. K., Paul, R. K.,
+            & Kairi, A.(2023). Machine learning in the estimation of CRISPR-Cas9 cleavage sites for plant system.
+            <em>Frontiers in
+                genetics,</em> <strong>13</strong>, 1085332. <br>
+
+            <a href="https://doi.org/10.3389/fgene.2022.1085332"
+                target="_blank">https://doi.org/10.3389/fgene.2022.1085332</a> <br>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/36699447/"
+                target="_blank">https://pubmed.ncbi.nlm.nih.gov/36699447/</a>
+        </div>
+        <div class="items" id="ritem2">
+            <strong>Deep Learning Model:</strong> Chandini BC (2022), CRISPR/Cas9 off targets prediction in Plants using
+            Deep Learning (master&apos;s thesis), ICAR-Indian Agricultural Statistics Research Institute, ICAR-IARI, New
+            Delhi.
+        </div>
+
+    </section>
+
+    <!----------- Layout of Help section ------------>
+    <section class="Help" id="Helpid">
+        <h3 id="Refhead1">Please Read Below:</h3>
+        <div>
+            <div class="Help1">
+                <strong id="Helpstrong1">Please Note that:</strong>
+                These AI models are trained only on Plants data i.e mainly Agricultural Crops.
+                Moreover during training, only on-target and off-target data are used.
+                Hence uncleaved sites will also be treated as off-target while result generation.
+                At current stage it is recommended to use this tool for validating results from other tools.
+                In result on-target is depicted as 1 and off-target is depicted as 0.
+            </div>
+            <div>
+                <ul id="Helpul1">
+                    <li><strong>Step 1:</strong> Enter Your 23 length (bp) long Guide RNA sequence (sgRNA) containing
+                        PAM in the
+                        provided area.</li>
+                    <li><strong>Step 2:</strong> Enter Your Corresponding target DNA sequence in the provided area.
+                        Or<br>
+                        &emsp;&emsp;&emsp;&nbsp;Upload your Fasta file containing target DNA sequence by clicking on
+                        Choose file.</li>
+                    <li><strong>Step 3:</strong> Choose the AI Model of your choice for result prediction.</li>
+                    <li><strong>Step 4:</strong> Click on Predict</li>
+                </ul>
+            </div>
+            <div>
+                <ul id="Helpul2">
+                    <!-- <li>You can also click on <strong>Load Example</strong> for Loading demo data.</li> -->
+                    <li>You can click on <strong>Reset</strong> to clear the input data.</li>
+                    <li> <strong style="color: red;">Note that:</strong> At this stage, this website is non responsive
+                        and only compatible with screen of 1920*1080 resolution. </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!----------- Layout of About section ------------>
+    <section class="Help" id="Aboutid">
+        <div class="Aboutcrispr">
+            <img src="{{ url_for('static', filename='images/crispr.png') }}" alt="CRISPR-Cas9">
+            <!-- <img src=Images\crispr.png alt="CRISPR-Cas9"> -->
+            <div class="crisprtext">
+                <b>CRISPR-Cas9</b> is a RNA mediated gene and genome editing technology which can be used to modify
+                genome of
+                organism of interest irrespective of its cellular oragnization i.e prokarotic or eukaryotic. <br>This
+                particular technique used to edit gene has been derived from a bacteria, <i>Streptococcus pyogenes</i>.
+                <br> &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
+                &emsp; &emsp; &ensp; This IASRI-CRISPR (i-CRISPR) tool can be used to predict whether a given target DNA
+                sequence is on or off-target for a given sgRNA. This tool is particularly designed for plants
+                specifically agricultural crops. It works on the principle of binary classification using Artificial
+                Intelligence models for backend processing.
+            </div>
+        </div>
+        <h3 id="Abouthead">This Tool is developed as Master&apos;s thesis project at ICAR-IASRI, New Delhi, India</h3>
+        <div class="About1">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Developers</th>
+                        <th>Model Contributers</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <ol>
+                                <li>Abhishek Anand</li>
+                                <li>Mr. Sanjeev Kumar</li>
+                                <li>Ravi</li>
+                                <li>Lal Dhari Patel</li>
+                                <li>Dr. Dwijesh Chandra Mishra</li>
+                            </ol>
+                        </td>
+                        <td>
+                            <ol>
+                                <li>Jutan Das</li>
+                                <li>Dr. Sudhir Srivastava</li>
+                            </ol>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="Feedback">For any feedback, query or suggestion kindly mail at: sanjeev.kumar@icar.gov.in,
+                abhianand.bi@gmail.com</div>
+        </div>
+    </section>
+
+    <!----------- Layout of Footer ------------>
+    <footer class="Bottom1">
+        <div class="Bottom2">
+            <ul class="Bottom3" #="Links">
+                <li><a href="https://www.icar.org.in/" target="_blank">ICAR |</a></li>
+                <li><a href="https://www.iari.res.in/index.php/en/" target="_blank">ICAR-IARI |</a></li>
+                <li><a href="https://iasri.icar.gov.in/" target="_blank">ICAR-IASRI</a></li>
+            </ul>
+            Copyright &copy; 2023 ICAR-Indian Agricultural Research Institute. All rights reserved.
+        </div>
+    </footer>
+
+    <!----------- Link of javascript file here ------------>
+    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+    <!-- <script src="/Scripts/script.js"></script> -->
+</body>
+
+</html>
